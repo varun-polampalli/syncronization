@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Define the two repository URLs
+repo1=https://github.com/varun-polampalli/wdde13-git.git
+repo2=https://github.com/varun-polampalli/react-projects.git
+
+# Add the second repository as a remote to the first repository
+git remote add repo2 $repo2
+
+# Fetch the changes from the remote repository
+git fetch repo2
+
+# Merge the changes from the remote repository into the current branch
+git merge repo2/master --allow-unrelated-histories
+
+# Push the changes to the first repository
+git push origin main
+
+# Change directory to the second repository
+cd react-projects
+
+# Fetch the changes from the first repository
+git fetch origin
+
+# Merge the changes from the first repository into the current branch
+git merge origin/main --allow-unrelated-histories
+
+# Push the changes to the second repository
+git push
+
+var=100%
+echo " synching to new repo $var"
